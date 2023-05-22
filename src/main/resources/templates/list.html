@@ -18,9 +18,29 @@
                 </th:block>
             </tr>
             <tr>
-                <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+                <!-- TODO #2: Complete the View Jobs By Category Table. -->
+<!--                From TA: -->
+<!--                * Don't overthink the column= and value= portion &ndash;&gt; they will be the same -->
+<!--                * In anchor tag, you shouldn't need a th:text since you just always want it to display "View All"-->
+<!--                * think through the logic of the for-each loop on the "View All" &#45;&#45; would we want to loop through -->
+<!--                different choices if we really just want all available options? -->
+<!--                * All you're trying to do is create a single link that displays as "View All" and passes in the -->
+<!--                appropriate information to return all possible columns and values.  -->
+
+                <!-- /list/jobs?column=all -->
+                <!-- th:href="@{/list/jobs(column=${columnChoices.all},value=${item})}" -->
+                <!-- <a th:href='@{/list/jobs(column=${"all"})}'> View All </a> -->
+
+                <td>
+                    <ul>
+                        <li>
+                            <a th:href='@{/list/jobs(column=${"all"})}'> View All </a>
+                        </li>
+                    </ul>
+                </td>
+
+                <!-- <td></td> &lt;!&ndash; Feel free to remove or modify this element if necessary. &ndash;&gt;-->
 
                 <td th:each="category : ${tableChoices}">
                     <ul>
